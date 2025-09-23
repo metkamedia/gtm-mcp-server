@@ -41,14 +41,15 @@ This will open a browser for Google authorization. After successful authorizatio
 
 Add to Claude Desktop configuration:
 
-**macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+**macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`  
+**Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
 
 ```json
 {
   "mcpServers": {
     "google-tag-manager": {
       "command": "node",
-      "args": ["/Users/wiefix/WORK/gtm-mcp-server/dist/index.js"],
+      "args": ["/FULL/PATH/TO/YOUR/gtm-mcp-server/dist/index.js"],
       "env": {
         "PATH": "/usr/local/bin:/usr/bin:/bin"
       }
@@ -56,6 +57,14 @@ Add to Claude Desktop configuration:
   }
 }
 ```
+
+**⚠️ Important:** Replace `/FULL/PATH/TO/YOUR/gtm-mcp-server/` with the actual path to your project folder.
+
+For example:
+- macOS: `"/Users/yourname/Documents/gtm-mcp-server/dist/index.js"`
+- Windows: `"C:\\Users\\YourName\\Documents\\gtm-mcp-server\\dist\\index.js"`
+
+**PATH explanation:** The `PATH` environment variable specifies directories where system executables (like `node`) are located. On macOS/Linux, these standard paths ensure the MCP server can find Node.js. On Windows, you might need to adjust this to your Node.js installation path or use the default system PATH.
 
 ### 5. Restart Claude Desktop
 
