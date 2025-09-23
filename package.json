@@ -1,0 +1,49 @@
+{
+  "name": "google-tag-manager-mcp-server",
+  "version": "3.0.3",
+  "description": "Local MCP server for Google Tag Manager",
+  "license": "Apache-2.0",
+  "author": "stape-io",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "google-tag-manager-mcp-server": "./dist/index.js"
+  },
+  "keywords": [
+    "mcp",
+    "modelcontextprotocol",
+    "gtm"
+  ],
+  "scripts": {
+    "build": "tsc && chmod +x dist/index.js",
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "start": "node dist/index.js",
+    "auth": "node dist/auth.js",
+    "lint": "eslint --ext .ts src",
+    "lint:fix": "eslint --ext .ts src --fix"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "express": "^4.18.2",
+    "google-auth-library": "^9.4.1",
+    "googleapis": "^128.0.0",
+    "open": "^10.1.0",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.36.0",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.11.19",
+    "@typescript-eslint/eslint-plugin": "^8.30.1",
+    "@typescript-eslint/parser": "^8.30.1",
+    "eslint": "^9.24.0",
+    "eslint-config-prettier": "^10.1.2",
+    "prettier": "^3.5.3",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.8.3"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
