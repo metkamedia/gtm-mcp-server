@@ -1,45 +1,45 @@
 # Google Tag Manager MCP Server
 
-Локальный сервер Model Context Protocol (MCP) для Google Tag Manager, позволяющий Claude взаимодействовать с вашими GTM аккаунтами, контейнерами, тегами, триггерами и переменными.
+Local Model Context Protocol (MCP) server for Google Tag Manager, allowing Claude to interact with your GTM accounts, containers, tags, triggers, and variables.
 
-## 🚀 Быстрый старт
+## 🚀 Quick Start
 
-### 1. Установка зависимостей
+### 1. Install Dependencies
 
 ```bash
 npm install
 ```
 
-### 2. Получение Google OAuth2 credentials
+### 2. Get Google OAuth2 Credentials
 
-1. 🌐 Перейдите в [Google Cloud Console](https://console.cloud.google.com/)
-2. 📁 Создайте новый проект или выберите существующий
-3. 🔧 Включите Google Tag Manager API:
-   - Перейдите в "APIs & Services" > "Library"
-   - Найдите "Tag Manager API" и нажмите "Enable"
-4. 🔑 Создайте OAuth 2.0 credentials:
-   - Перейдите в "APIs & Services" > "Credentials"
-   - Нажмите "Create Credentials" > "OAuth 2.0 Client ID"
-   - Выберите "Web application"
-   - Добавьте `http://localhost:3000/callback` в "Authorized redirect URIs"
-   - Нажмите "Create"
-5. 📥 **Скачайте JSON файл** и сохраните его как `credentials.json` в корень проекта
+1. 🌐 Go to [Google Cloud Console](https://console.cloud.google.com/)
+2. 📁 Create a new project or select an existing one
+3. 🔧 Enable Google Tag Manager API:
+   - Go to "APIs & Services" > "Library"
+   - Find "Tag Manager API" and click "Enable"
+4. 🔑 Create OAuth 2.0 credentials:
+   - Go to "APIs & Services" > "Credentials"
+   - Click "Create Credentials" > "OAuth 2.0 Client ID"
+   - Select "Web application"
+   - Add `http://localhost:3000/callback` to "Authorized redirect URIs"
+   - Click "Create"
+5. 📥 **Download the JSON file** and save it as `credentials.json` in the project root
 
-### 3. Авторизация
+### 3. Authorization
 
 ```bash
-# Соберите проект
+# Build the project
 npm run build
 
-# Запустите авторизацию
+# Run authorization
 npm run auth
 ```
 
-Это откроет браузер для авторизации Google. После успешной авторизации создастся файл `gtm-config.json` с токенами доступа.
+This will open a browser for Google authorization. After successful authorization, a `gtm-config.json` file with access tokens will be created.
 
-### 4. Настройка Claude Desktop
+### 4. Configure Claude Desktop
 
-Добавьте в конфигурацию Claude Desktop:
+Add to Claude Desktop configuration:
 
 **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
 
@@ -57,149 +57,149 @@ npm run auth
 }
 ```
 
-### 5. Перезагрузите Claude Desktop
+### 5. Restart Claude Desktop
 
-После настройки перезагрузите Claude Desktop для подключения MCP сервера.
+After configuration, restart Claude Desktop to connect the MCP server.
 
-## 🛠️ Доступные инструменты
+## 🛠️ Available Tools
 
 ### 📊 gtm_account
-Управление GTM аккаунтами
-- `get` - получить детали аккаунта
-- `list` - список всех аккаунтов  
-- `update` - обновить настройки аккаунта
+GTM account management
+- `get` - get account details
+- `list` - list all accounts  
+- `update` - update account settings
 
 ### 📦 gtm_container  
-Управление GTM контейнерами
-- `get` - получить детали контейнера
-- `list` - список контейнеров в аккаунте
-- `create` - создать новый контейнер
-- `update` - обновить контейнер
-- `delete` - удалить контейнер
+GTM container management
+- `get` - get container details
+- `list` - list containers in account
+- `create` - create new container
+- `update` - update container
+- `delete` - delete container
 
 ### 🚀 gtm_workspace
-Управление GTM workspace (рабочими пространствами)
-- `get` - получить детали workspace
-- `list` - список workspace в контейнере
-- `create` - создать новый workspace
-- `update` - обновить workspace
-- `delete` - удалить workspace
+GTM workspace management
+- `get` - get workspace details
+- `list` - list workspaces in container
+- `create` - create new workspace
+- `update` - update workspace
+- `delete` - delete workspace
 
 ### 📁 gtm_folder
-Управление папками для организации элементов
-- `get` - получить детали папки
-- `list` - список папок в workspace
-- `create` - создать новую папку
-- `update` - обновить папку
-- `delete` - удалить папку
+Folder management for organizing elements
+- `get` - get folder details
+- `list` - list folders in workspace
+- `create` - create new folder
+- `update` - update folder
+- `delete` - delete folder
 
 ### 🏷️ gtm_tag
-Управление GTM тегами
-- `get` - получить детали тега  
-- `list` - список тегов в workspace
-- `create` - создать новый тег
-- `update` - обновить тег
-- `delete` - удалить тег
+GTM tag management
+- `get` - get tag details  
+- `list` - list tags in workspace
+- `create` - create new tag
+- `update` - update tag
+- `delete` - delete tag
 
 ### ⚡ gtm_trigger
-Управление GTM триггерами
-- `get` - получить детали триггера
-- `list` - список триггеров в workspace  
-- `create` - создать новый триггер
-- `update` - обновить триггер
-- `delete` - удалить триггер
+GTM trigger management
+- `get` - get trigger details
+- `list` - list triggers in workspace  
+- `create` - create new trigger
+- `update` - update trigger
+- `delete` - delete trigger
 
 ### 🔢 gtm_variable
-Управление GTM переменными
-- `get` - получить детали переменной
-- `list` - список переменных в workspace
-- `create` - создать новую переменную
-- `update` - обновить переменную  
-- `delete` - удалить переменную
+GTM variable management
+- `get` - get variable details
+- `list` - list variables in workspace
+- `create` - create new variable
+- `update` - update variable  
+- `delete` - delete variable
 
 ### 🔧 gtm_builtin_variable
-Управление встроенными переменными GTM
-- `list` - список встроенных переменных
-- `create` - включить встроенную переменную (pageUrl, pageTitle, etc.)
-- `delete` - отключить встроенную переменную
+GTM built-in variable management
+- `list` - list built-in variables
+- `create` - enable built-in variable (pageUrl, pageTitle, etc.)
+- `delete` - disable built-in variable
 
-## 💬 Примеры использования
+## 💬 Usage Examples
 
-После настройки можете спросить Claude:
+After setup, you can ask Claude:
 
-**Базовая навигация:**
-- "Покажи все мои GTM аккаунты"
-- "Список контейнеров в аккаунте 123456"
-- "Покажи workspace в контейнере 456789"
+**Basic navigation:**
+- "Show all my GTM accounts"
+- "List containers in account 123456"
+- "Show workspaces in container 456789"
 
-**Организация:**
-- "Создай папку 'Analytics Tags' для организации тегов"
-- "Список всех папок в workspace"
+**Organization:**
+- "Create folder 'Analytics Tags' for organizing tags"
+- "List all folders in workspace"
 
-**Работа с тегами:**
-- "Создай Google Analytics тег с Measurement ID GA_MEASUREMENT_ID"
-- "Покажи все теги в workspace 7"
-- "Обнови тег с ID 15 новыми настройками"
-- "Удали неиспользуемый тег"
+**Working with tags:**
+- "Create Google Analytics tag with Measurement ID GA_MEASUREMENT_ID"
+- "Show all tags in workspace 7"
+- "Update tag with ID 15 with new settings"
+- "Delete unused tag"
 
-**Триггеры:**
-- "Создай триггер для всех просмотров страниц"
-- "Создай триггер клика по кнопке с классом 'download-btn'"
-- "Список всех триггеров"
+**Triggers:**
+- "Create trigger for all page views"
+- "Create click trigger for button with class 'download-btn'"
+- "List all triggers"
 
-**Переменные:**
-- "Включи встроенную переменную Page URL"
-- "Создай пользовательскую переменную для GA Measurement ID"
-- "Покажи все переменные в workspace"
+**Variables:**
+- "Enable built-in variable Page URL"
+- "Create custom variable for GA Measurement ID"
+- "Show all variables in workspace"
 
-## 🔧 Решение проблем
+## 🔧 Troubleshooting
 
-### Ошибки авторизации
-- Убедитесь что `credentials.json` находится в корне проекта
-- Проверьте что Google Tag Manager API включен
-- Перезапустите `npm run auth`
+### Authorization Errors
+- Make sure `credentials.json` is in the project root
+- Verify that Google Tag Manager API is enabled
+- Restart `npm run auth`
 
-### Ошибки API
-- Убедитесь что ваш Google аккаунт имеет доступ к GTM аккаунтам
-- Проверьте права доступа в GTM
+### API Errors
+- Ensure your Google account has access to GTM accounts
+- Check access permissions in GTM
 
-### Ошибки подключения
-- Перезагрузите Claude Desktop после изменения конфигурации
-- Проверьте правильность путей в claude_desktop_config.json
+### Connection Errors
+- Restart Claude Desktop after configuration changes
+- Verify correct paths in claude_desktop_config.json
 
-## 📁 Структура файлов
+## 📁 File Structure
 
 ```
 gtm-mcp-server/
-├── credentials.json          # Ваши Google OAuth credentials (скачанный файл)
-├── gtm-config.json          # Токены доступа (создается после авторизации)
-├── src/                     # Исходный код
-├── dist/                    # Скомпилированный код
-└── README.md               # Эта инструкция
+├── credentials.json          # Your Google OAuth credentials (downloaded file)
+├── gtm-config.json          # Access tokens (created after authorization)
+├── src/                     # Source code
+├── dist/                    # Compiled code
+└── README.md               # This instruction
 ```
 
-## ⚠️ Безопасность
+## ⚠️ Security
 
-- Файлы `credentials.json` и `gtm-config.json` содержат секретные данные
-- Они автоматически добавлены в `.gitignore`
-- Никогда не публикуйте эти файлы в общедоступных репозиториях
+- Files `credentials.json` and `gtm-config.json` contain secret data
+- They are automatically added to `.gitignore`
+- Never publish these files in public repositories
 
-## 🔄 Разработка
+## 🔄 Development
 
 ```bash
-# Режим разработки с автоперезагрузкой
+# Development mode with auto-reload
 npm run dev
 
-# Сборка проекта
+# Build project
 npm run build
 
-# Проверка кода
+# Code check
 npm run lint
 ```
 
-## 📞 Поддержка
+## 📞 Support
 
-При возникновении проблем:
-1. Проверьте что все шаги выполнены корректно
-2. Убедитесь что используете Node.js v20.19.5+
-3. Проверьте логи в терминале Claude Desktop
+If you encounter problems:
+1. Verify that all steps were completed correctly
+2. Make sure you're using Node.js v20.19.5+
+3. Check logs in Claude Desktop terminal
