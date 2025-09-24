@@ -171,15 +171,15 @@ async function startAuthFlow(): Promise<void> {
         <html>
           <head>
             <meta charset="UTF-8">
-            <title>GTM MCP Server - Авторизация завершена</title>
+            <title>GTM MCP Server - Authorization Complete</title>
           </head>
           <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial; text-align: center; padding: 50px; background: #f5f5f5;">
             <div style="background: white; padding: 40px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); max-width: 500px; margin: 0 auto;">
-              <h1 style="color: #28a745; margin-bottom: 20px;">✅ Авторизация успешна!</h1>
-              <p style="font-size: 18px; margin-bottom: 10px;">Добро пожаловать, <strong>${userData.name}</strong></p>
+              <h1 style="color: #28a745; margin-bottom: 20px;">✅ Authorization successful!</h1>
+              <p style="font-size: 18px; margin-bottom: 10px;">Welcome, <strong>${userData.name}</strong></p>
               <p style="color: #666; margin-bottom: 30px;">${userData.email}</p>
-              <p style="color: #28a745; font-weight: bold;">🎉 Теперь вы можете использовать GTM MCP Server!</p>
-              <p style="color: #666; font-size: 14px; margin-top: 20px;">Это окно можно закрыть.</p>
+              <p style="color: #28a745; font-weight: bold;">🎉 You can now use GTM MCP Server!</p>
+              <p style="color: #666; font-size: 14px; margin-top: 20px;">You can close this window.</p>
             </div>
             <script>setTimeout(() => window.close(), 5000);</script>
           </body>
@@ -187,12 +187,12 @@ async function startAuthFlow(): Promise<void> {
       `);
 
       console.log("");
-      console.log("🎉 ====== АВТОРИЗАЦИЯ ЗАВЕРШЕНА ======");
-      console.log(`👤 Пользователь: ${userData.name}`);
+      console.log("🎉 ====== AUTHORIZATION COMPLETE ======");
+      console.log(`👤 User: ${userData.name}`);
       console.log(`📧 Email: ${userData.email}`);
-      console.log(`💾 Конфигурация сохранена в: gtm-config.json`);
+      console.log(`💾 Configuration saved to: gtm-config.json`);
       console.log("");
-      console.log("✅ Теперь вы можете использовать GTM MCP Server в Claude!");
+      console.log("✅ You can now use GTM MCP Server in Claude!");
       console.log("🔄 Перезагрузите Claude Desktop, если еще не сделали это.");
 
       setTimeout(() => {
